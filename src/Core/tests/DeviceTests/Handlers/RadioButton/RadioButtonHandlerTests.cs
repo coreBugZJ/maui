@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Microsoft.Maui.DeviceTests
 {
-	public partial class RadioButtonHandlerTests : HandlerTestBase<RadioButtonHandler, RadioButtonStub>
+	public partial class RadioButtonHandlerTests : CoreHandlerTestBase<RadioButtonHandler, RadioButtonStub>
 	{
 		[Theory(DisplayName = "IsChecked Initializes Correctly")]
 		[InlineData(false)]

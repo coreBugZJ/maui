@@ -1,3 +1,4 @@
+#if PLATFORM
 using System;
 using System.IO;
 using System.Threading;
@@ -10,6 +11,8 @@ using Xunit;
 namespace Microsoft.Maui.DeviceTests
 {
 	public abstract partial class HandlerTestBase<THandler, TStub>
+		where THandler : class, IViewHandler, new()
+		where TStub : IStubBase, IView, new()
 	{
 		[Fact]
 		public async Task DisconnectHandlerDoesntCrash()
@@ -294,3 +297,4 @@ namespace Microsoft.Maui.DeviceTests
 		}
 	}
 }
+#endif

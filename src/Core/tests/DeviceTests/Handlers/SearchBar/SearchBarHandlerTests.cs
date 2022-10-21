@@ -7,7 +7,7 @@ using Xunit;
 namespace Microsoft.Maui.DeviceTests
 {
 	[Category(TestCategory.SearchBar)]
-	public partial class SearchBarHandlerTests : HandlerTestBase<SearchBarHandler, SearchBarStub>
+	public partial class SearchBarHandlerTests : CoreHandlerTestBase<SearchBarHandler, SearchBarStub>
 	{
 		[Theory(DisplayName = "Background Initializes Correctly")]
 		[InlineData(0xFF0000)]

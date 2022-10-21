@@ -7,7 +7,7 @@ using Xunit;
 namespace Microsoft.Maui.DeviceTests
 {
 	[Category(TestCategory.Label)]
-	public partial class LabelHandlerTests : HandlerTestBase<LabelHandler, LabelStub>
+	public partial class LabelHandlerTests : CoreHandlerTestBase<LabelHandler, LabelStub>
 	{
 		[Fact(DisplayName = "Background Initializes Correctly")]
 		public async Task BackgroundInitializesCorrectly()

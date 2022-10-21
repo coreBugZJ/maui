@@ -9,7 +9,7 @@ using Xunit;
 namespace Microsoft.Maui.DeviceTests
 {
 	[Category(TestCategory.TimePicker)]
-	public partial class TimePickerHandlerTests : HandlerTestBase<TimePickerHandler, TimePickerStub>
+	public partial class TimePickerHandlerTests : CoreHandlerTestBase<TimePickerHandler, TimePickerStub>
 	{
 		[Fact(DisplayName = "Time Initializes Correctly")]
 		public async Task TimeInitializesCorrectly()

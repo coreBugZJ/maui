@@ -7,7 +7,7 @@ using Xunit;
 namespace Microsoft.Maui.DeviceTests
 {
 	[Category(TestCategory.Picker)]
-	public partial class PickerHandlerTests : HandlerTestBase<PickerHandler, PickerStub>
+	public partial class PickerHandlerTests : CoreHandlerTestBase<PickerHandler, PickerStub>
 	{
 		[Theory(DisplayName = "Updating Font Does Not Affect HorizontalTextAlignment")]
 		[InlineData(10, 20)]

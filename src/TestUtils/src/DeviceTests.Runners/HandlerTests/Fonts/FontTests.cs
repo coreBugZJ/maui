@@ -1,3 +1,4 @@
+#if PLATFORM && !WINDOWS
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Handlers;
@@ -53,3 +54,4 @@ namespace Microsoft.Maui.DeviceTests
 		}
 	}
 }
+#endif

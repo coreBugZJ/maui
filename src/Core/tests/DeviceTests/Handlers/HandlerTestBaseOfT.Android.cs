@@ -2,6 +2,7 @@ using System;
 using System.Numerics;
 using System.Threading.Tasks;
 using Android.Views;
+using Android.Webkit;
 using Android.Widget;
 using Xunit;
 
@@ -165,6 +166,24 @@ namespace Microsoft.Maui.DeviceTests
 			var viewHandler = handler as ViewHandler;
 
 			Assert.True(viewHandler.NeedsContainer);
+		}
+
+		[Fact(DisplayName = "Control meets basic accessibility requirements")]
+		[Category(TestCategory.Accessibility)]
+		public async Task PlatformViewIsAccessible() 
+		{
+			var view = new TStub();
+			var handler = await CreateHandlerAsync(view);
+
+			var platformView = handler.PlatformView as View;
+
+			await InvokeOnMainThreadAsync(() => 
+			{
+				platformView.AttachAndRun(() =>
+				{
+					TestUtils.DeviceTests.Accessibility.AssertAccessible(platformView);
+				});
+			});
 		}
 
 		protected string GetAutomationId(IViewHandler viewHandler) =>

@@ -32,6 +32,8 @@ namespace Microsoft.Maui.DeviceTests
 
 			var appBuilder = ConfigureBuilder(MauiApp.CreateBuilder());
 
+			additionalCreationActions?.Invoke(appBuilder);
+
 			appBuilder.Services.TryAddSingleton<IDispatcherProvider>(svc => TestDispatcher.Provider);
 			appBuilder.Services.TryAddScoped<IDispatcher>(svc => TestDispatcher.Current);
 			appBuilder.Services.TryAddSingleton<IApplication>((_) => new ApplicationStub());
@@ -73,6 +75,7 @@ namespace Microsoft.Maui.DeviceTests
 
 		protected void InitializeViewHandler(IElement element, IElementHandler handler, IMauiContext mauiContext = null)
 		{
+			mauiContext ??= MauiContext;
 			handler.SetMauiContext(mauiContext);
 			handler.SetVirtualView(element);
 			element.Handler = handler;
@@ -118,6 +121,7 @@ namespace Microsoft.Maui.DeviceTests
 			where THandler : IElementHandler, new()
 			where TCustomHandler : THandler, new()
 		{
+			mauiContext ??= MauiContext;
 			var handler = Activator.CreateInstance<TCustomHandler>();
 			InitializeViewHandler(element, handler, mauiContext);
 			return handler;
@@ -135,7 +139,7 @@ namespace Microsoft.Maui.DeviceTests
 
 		public void Dispose()
 		{
-			((IDisposable)_mauiApp).Dispose();
+			((IDisposable)_mauiApp)?.Dispose();
 			_mauiApp = null;
 			_servicesProvider = null;
 			_mauiContext = null;

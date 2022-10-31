@@ -27,7 +27,10 @@ namespace Microsoft.Maui.DeviceTests
 #if ANDROID
 					life.AddAndroid(android =>
 					{
-						android.OnCreate((a, b) => DefaultContext = a);
+						android.OnCreate((a, b) =>
+						{
+							DefaultContext = a;
+						});
 					});
 #elif WINDOWS
 					life.AddWindows(windows =>

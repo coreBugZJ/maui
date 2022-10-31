@@ -43,15 +43,5 @@ namespace Microsoft.Maui.DeviceTests
 
 			return 0;
 		}
-
-		Task ValidateHasColor(IStepper stepper, Color color, Action action = null)
-		{
-			return InvokeOnMainThreadAsync(() =>
-			{
-				var platformStepper = GetNativeStepper(CreateHandler(stepper));
-				action?.Invoke();
-				platformStepper.AssertContainsColorAsync(color);
-			});
-		}
 	}
 }

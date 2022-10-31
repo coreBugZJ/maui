@@ -172,5 +172,10 @@ namespace Microsoft.Maui.DeviceTests
 			}
 		}
 #endif
+
+		[Category(TestCategory.SearchBar)]
+		public class SearchBarTextStyleTests : TextStyleHandlerTests<SearchBarHandler, SearchBarStub>
+		{
+		}
 	}
 }

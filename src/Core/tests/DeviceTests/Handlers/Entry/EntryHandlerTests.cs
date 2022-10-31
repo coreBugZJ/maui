@@ -493,5 +493,10 @@ namespace Microsoft.Maui.DeviceTests
 				nameof(IEntry.CharacterSpacing),
 				() => entry.CharacterSpacing = newSize);
 		}
+
+		[Category(TestCategory.Entry)]
+		public class EntryTextStyleTests : TextStyleHandlerTests<EntryHandler, EntryStub>
+		{
+		}
 	}
 }

@@ -6,6 +6,7 @@ using Xunit;
 
 namespace Microsoft.Maui.DeviceTests
 {
+	[Category(TestCategory.RadioButton)]
 	public partial class RadioButtonHandlerTests : CoreHandlerTestBase<RadioButtonHandler, RadioButtonStub>
 	{
 		[Theory(DisplayName = "IsChecked Initializes Correctly")]
@@ -33,6 +34,15 @@ namespace Microsoft.Maui.DeviceTests
 
 			Assert.Equal(xplatIsChecked, values.ViewValue);
 			Assert.Equal(expectedValue, values.PlatformViewValue);
+		}
+
+		[Category(TestCategory.RadioButton)]
+		public class RadioButtonTextStyleTests : TextStyleHandlerTests<RadioButtonHandler, RadioButtonStub>
+		{
+			protected override void SetText(RadioButtonStub stub)
+			{
+				stub.Content = "test";
+			}
 		}
 	}
 }

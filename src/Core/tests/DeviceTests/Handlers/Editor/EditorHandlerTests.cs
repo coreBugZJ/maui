@@ -369,5 +369,10 @@ namespace Microsoft.Maui.DeviceTests
 
 			await ValidatePropertyInitValue(editor, () => expected, GetNativeIsChatKeyboard, expected);
 		}
+
+		[Category(TestCategory.Editor)]
+		public class EditorTextStyleTests : TextStyleHandlerTests<EditorHandler, EditorStub>
+		{
+		}
 	}
 }

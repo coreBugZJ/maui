@@ -35,6 +35,15 @@ namespace Microsoft.Maui.DeviceTests
 
 			await CreateHandlerAsync(timePicker);
 		}
+
+		[Category(TestCategory.TimePicker)]
+		public class TimePickerTextStyleTests : TextStyleHandlerTests<TimePickerHandler, TimePickerStub>
+		{
+			protected override void SetText(TimePickerStub stub)
+			{
+				stub.Time = new TimeSpan(17, 0, 0);
+			}
+		}
 	}
 }
 #endif

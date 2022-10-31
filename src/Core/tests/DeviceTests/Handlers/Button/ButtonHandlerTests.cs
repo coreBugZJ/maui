@@ -181,5 +181,10 @@ namespace Microsoft.Maui.DeviceTests
 				});
 			});
 		}
+
+		[Category(TestCategory.Button)]
+		public class ButtonTextStyleTests : TextStyleHandlerTests<ButtonHandler, ButtonStub>
+		{
+		}
 	}
 }

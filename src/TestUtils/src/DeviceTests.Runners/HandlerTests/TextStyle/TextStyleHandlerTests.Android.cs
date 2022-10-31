@@ -2,13 +2,14 @@ using System.Threading.Tasks;
 using Android.Graphics;
 using Android.Widget;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Maui.DeviceTests.Stubs;
 using Microsoft.Maui.Handlers;
 using Xunit;
 using SearchView = AndroidX.AppCompat.Widget.SearchView;
 
 namespace Microsoft.Maui.DeviceTests
 {
-	public partial class HandlerTestBase<THandler, TStub>
+	public abstract partial class TextStyleHandlerTests<THandler, TStub>
 	{
 		[Theory(DisplayName = "Font Family Initializes Correctly")]
 		[InlineData(null)]

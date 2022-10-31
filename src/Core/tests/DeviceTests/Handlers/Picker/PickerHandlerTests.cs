@@ -82,5 +82,22 @@ namespace Microsoft.Maui.DeviceTests
 				nameof(IPicker.Title),
 				() => picker.Title = newText);
 		}
+
+		[Category(TestCategory.Picker)]
+		public class PickerTextStyleTests : TextStyleHandlerTests<PickerHandler, PickerStub>
+		{
+			protected override void SetText(PickerStub stub)
+			{
+				if (stub.Items.Count > 0)
+				{
+					stub.SelectedItem = stub.Items[0];
+				}
+				else
+				{
+					stub.Items = new List<string> { "test" };
+					stub.SelectedItem = "test";
+				}
+			}
+		}
 	}
 }

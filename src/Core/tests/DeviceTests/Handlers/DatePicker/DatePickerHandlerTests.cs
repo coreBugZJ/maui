@@ -41,6 +41,16 @@ namespace Microsoft.Maui.DeviceTests
 
 			await CreateHandlerAsync(datePicker);
 		}
+
+		[Category(TestCategory.DatePicker)]
+		public class DatePickerTextStyleTests : TextStyleHandlerTests<DatePickerHandler, DatePickerStub>
+		{
+
+			protected override void SetText(DatePickerStub stub)
+			{
+				stub.Date = new DateTime(2042, 1, 1);
+			}
+		}
 	}
 }
 #endif

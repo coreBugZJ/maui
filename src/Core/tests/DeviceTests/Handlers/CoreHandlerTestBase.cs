@@ -4,7 +4,7 @@ using Microsoft.Maui.Hosting;
 
 namespace Microsoft.Maui.DeviceTests
 {
-	public class CoreHandlerTestBase : HandlerTestBase, IDisposable
+	public abstract class CoreHandlerTestBase : HandlerTestBase, IDisposable
 	{
 		protected override MauiAppBuilder ConfigureBuilder(MauiAppBuilder mauiAppBuilder) =>
 			mauiAppBuilder.ConfigureTestBuilder();

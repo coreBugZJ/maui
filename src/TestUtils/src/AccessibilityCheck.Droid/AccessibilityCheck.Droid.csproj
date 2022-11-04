@@ -5,7 +5,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Karamunting.Android.JonathanHedley.Jsoup" Version="1.12.2" />
     <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.4" />
   </ItemGroup>
 </Project>

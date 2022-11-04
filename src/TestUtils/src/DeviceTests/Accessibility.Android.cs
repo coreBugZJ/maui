@@ -53,7 +53,12 @@ namespace Microsoft.Maui.TestUtils.DeviceTests
 
 			for (int n = 0; n < results.Count; n++)
 			{
-				errors.Add(results[n]);	
+				var result = results[n];
+
+				if (result.Type == AccessibilityCheckResult.AccessibilityCheckResultType.Error)
+				{
+					errors.Add(result);
+				}
 			}
 
 			if (errors.Count > 0)

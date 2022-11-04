@@ -177,9 +177,9 @@ namespace Microsoft.Maui.DeviceTests
 
 			var platformView = handler.PlatformView as View;
 
-			await InvokeOnMainThreadAsync(() => 
+			await InvokeOnMainThreadAsync(async () => 
 			{
-				platformView.AttachAndRun(() =>
+				await platformView.AttachAndRun(() =>
 				{
 					TestUtils.DeviceTests.Accessibility.AssertAccessible(platformView);
 				});

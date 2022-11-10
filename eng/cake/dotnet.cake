@@ -347,7 +347,7 @@ Task("dotnet-pack-docs")
             }
         }
 
-        //CleanDirectories(tempDir);
+        CleanDirectories(tempDir);
     });
 
 Task("dotnet-pack")

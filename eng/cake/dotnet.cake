@@ -327,12 +327,10 @@ Task("dotnet-pack-docs")
         {
             var d = $"{tempDir}/{nupkg.GetFilename()}";
 
-            if (d.Contains(".DesignTools."))
-                continue;
-
             Unzip(nupkg, d);
             DeleteFiles($"{d}/**/*.pri");
             DeleteFiles($"{d}/**/*.aar");
+            DeleteFiles($"{d}/**/*.DesignTools.*");
             CopyFiles($"{d}/ref/**/net?.?/**/*.dll", $"{destDir}");
             CopyFiles($"{d}/ref/**/net?.?/**/*.xml", $"{destDir}");
         }
@@ -352,7 +350,7 @@ Task("dotnet-pack-docs")
             }
         }
 
-        //CleanDirectories(tempDir);
+        CleanDirectories(tempDir);
     });
 
 Task("dotnet-pack")
